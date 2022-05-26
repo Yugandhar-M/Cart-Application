@@ -1,0 +1,114 @@
+Componenents in Project:
+
+1. Cards - This renders the home page view.
+
+    (in-built imports)
+    react-bootstrap: Card, Button
+    react: React, useState
+    react-redux: useDispatch
+
+    (external imports)
+    Itemsdata (pre-defined data with all infomration for an item)
+    ADD: actions defined in redux
+
+    (walkthrough)
+    Main function: Cards()
+    data - state 
+    Upon mapping each element in data, we return a 'Card' element that renders all the infomration.
+    Each card also has a 'Button' onClick will dispatches imported 'ADD' action by takind element as reference.
+
+
+2. CardDetails - This renders infomration of each item using its id
+
+    (in-built imports)
+    react: useState, useEffect, React
+    react-bootstrap: Table
+    react-redux: useDispatch, useSelector
+    react-router-dom: useParams, useNavigate
+
+    (external imports)
+    DLT,ADD,REMOVE: actions defined in redux
+
+    (walkthrough)
+    Main function: CardDetails()
+    data, title - state
+    'id' paramter is extracted using 'useParams'.
+    We are mapping on 'data' variable to display its infomration in table format.
+    Also 3 click functionalities to dispatch DLT,ADD,REMOVE actions.
+    useEffect to update 'data' and 'title' variable as per the 'id' param.
+    useNavigate to redirect after the delete action is dispatched.
+    Logical conditions defining when to pass DLT and REMOVE.
+
+
+3. Header - This renders the Header component and its functionalities
+
+    (in-built imports)
+    react: React, useState, useEffect
+    react-bootstrap: Navbar, Nav, Container, Table
+    react-router-dom: NavLink
+    react-redux: useDispatch, useSelector
+    @mui: Badge, Menu
+
+    (external import)
+    DLT: actions defined in redux
+
+    (walkthrough)
+
+
+
+
+Redux Scripts:
+1. action.js
+    This script defines functions that return action name to be performed along with payload attached.
+
+2. reducer.js
+    This script defines Logical aspects of reducer actions
+    exports 'cartreducer' function
+
+3. main.js  
+    (in-built imports)
+    redux: combineReducers
+
+    (external imports)
+    cartreducer: function exported from reducer.js
+
+    This is used to combine multiple reducer to a single root reducer. 
+    Useful as the app grows more complex and large.
+
+
+store.js
+    (in-built imports)
+    redux: createStore
+
+    (external imports)
+    rootred: root reducer fromn main.js
+    
+    (walkthrough)
+    Initializes the store using createStore
+
+
+App.js
+    (in-built imports)
+    react-router-dom: Route, Routes
+
+    (external imports)
+    Header, CardDetails, Cards - Componenents in Project
+
+    (walkthrough)
+    renders Header component and define routes to Home and Items page
+
+index.js
+    (in-built imports)
+    react: React
+    react-dom: ReactDOM
+    react-redux: Provider
+    react-router-dom: BrowserRouter
+
+    (external imports)
+    App: App.js
+    store: Defined store from store.js
+
+    (walkthrough)
+    We use Provider, BrowserRouter.
+    renders app component with element of id 'root'
+

@@ -31,7 +31,6 @@ export const cartreducer = (state = INIT_STATE, action) => {
                 return {
                     ...state,
                     carts:[...state.carts]
-    
                 }
             }else if(state.carts[IteamIndex_dec].qnty===1){
                 const data = state.carts.filter((el)=>el.id!==action.payload);

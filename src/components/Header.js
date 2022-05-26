@@ -26,9 +26,6 @@ const Header = () => {
         setAnchorEl(()=>null);
     };
 
-    const getSum=(total,item)=>{
-            return total+item.qnty*item.price;
-    };
 
     const dlt=(id)=>{
         dispatch(DLT(id))

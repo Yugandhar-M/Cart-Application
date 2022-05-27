@@ -24,9 +24,10 @@ const CardDetails = () => {
 
     const compare = async () => {
         let comparedata = getdata.filter((e) => {
-            return e.id == id
+            
+            return e.id === parseInt(id)
         });
-        console.log(`Title from compare funct: ${comparedata[0].rname}`)
+        // console.log(`Title from compare funct: ${comparedata[0].rname}`)
 
         await setTitle(comparedata[0].rname)
         await setData(comparedata)
@@ -42,7 +43,6 @@ const CardDetails = () => {
 
     useEffect(() => {
         compare();
-        console.log(`Title from useEffect func: ${title}`)
         document.title = title;
     }, [id,title])
 
@@ -55,11 +55,10 @@ const CardDetails = () => {
                         {
                             data.map((e) => {
                                 return (
-                                    <>
+                                    <div key={e.id}>
                                         <div className='items_img'>
                                             <img src={e.imgdata} alt="" />
                                         </div>
-                                        {/* {document.title = `${title}`} */}
                                         <div className='details'></div>
                                         <Table>
                                             <tr>
@@ -81,7 +80,7 @@ const CardDetails = () => {
                                                 </td>
                                             </tr>
                                         </Table>
-                                    </>
+                                    </div>
                                 )
                             })
                         }

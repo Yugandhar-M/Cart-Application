@@ -4,7 +4,7 @@ Componenents in Project:
 
     (in-built imports)
     react-bootstrap: Card, Button
-    react: React, useState
+    react: React, useState, useEffect
     react-redux: useDispatch
 
     (external imports)
@@ -14,6 +14,7 @@ Componenents in Project:
     (walkthrough)
     Main function: Cards()
     data - state 
+    useEffect is used to update the page title each time it renders.
     Upon mapping each element in data, we return a 'Card' element that renders all the infomration.
     Each card also has a 'Button' onClick will dispatches imported 'ADD' action by takind element as reference.
 
@@ -32,12 +33,14 @@ Componenents in Project:
     (walkthrough)
     Main function: CardDetails()
     data, title - state
+    useEffect is used to update the title whenever there is change in 'id' param.
     'id' paramter is extracted using 'useParams'.
     We are mapping on 'data' variable to display its infomration in table format.
     Also 3 click functionalities to dispatch DLT,ADD,REMOVE actions.
     useEffect to update 'data' and 'title' variable as per the 'id' param.
     useNavigate to redirect after the delete action is dispatched.
     Logical conditions defining when to pass DLT and REMOVE.
+    Update the qnty on clicking buttons by dispatching ADD, REMOVE actions
 
 
 3. Header - This renders the Header component and its functionalities
@@ -49,10 +52,17 @@ Componenents in Project:
     react-redux: useDispatch, useSelector
     @mui: Badge, Menu
 
-    (external import)
+    (external imports)
     DLT: actions defined in redux
 
     (walkthrough)
+    states: price - total price of items in cart
+            anchorEl - to set display items in cart onClick
+    useSelector to get updated data in store. 
+    Badge element to display count of cart items.
+    Upon mapping to objects in getdata variable, we display each item and it's info.
+    update the anchorEl state upon clicking actions.
+
 
 
 
